@@ -1,0 +1,24 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Windows.Forms;
+namespace Login
+{
+    class GradientPanel : Panel
+    {
+        public Color ColorAtas { get; set; }
+        public Color ColorBawah { get; set; }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            LinearGradientBrush lgb = new LinearGradientBrush(this.ClientRectangle, this.ColorAtas, this.ColorBawah, 90F);
+            Graphics g = e.Graphics;
+            g.FillRectangle(lgb,this.ClientRectangle);
+            base.OnPaint(e);
+        }
+    }
+}
